@@ -2,8 +2,16 @@ const express = require('express');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
-  res.send('Hello FSL!');
+  res.render('home');
+});
+
+app.get('/vaga', (req, res) => {
+  res.render('vaga');
 });
 
 const port = 3000;
