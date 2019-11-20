@@ -6,7 +6,8 @@
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.7.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sqlite": "^3.0.3"
   },
   "scripts": {
     "dev": "nodemon index.js"
