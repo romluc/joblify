@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   padding: 1rem;
 }
 
@@ -25,4 +25,25 @@ ul {
 
 li {
   margin-left: 0;
+}
+
+label {
+  display: block;
+  margin: 1.2rem 0 0.2rem 0;
+}
+
+input,
+select,
+button {
+  display: block;
+  font-size: 1.4rem;
+  padding: 0.4rem;
+  width: 540px;
+  border-radius: 4px;
+}
+
+textarea {
+  padding: 0.2rem;
+  height: 200px;
+  width: 540px;
 }

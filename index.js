@@ -4,12 +4,17 @@ const app = express();
 
 const sqlite = require('sqlite');
 
+const bodyParser = require('body-parser');
+
 const dbConnection = sqlite.open('banco.sqlite', { Promise });
 
 app.set('view engine', 'ejs');
 
+// middlewares
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
+// GET routes
 app.get('/', async (req, res) => {
   const db = await dbConnection;
   const categoriasDb = await db.all('select * from categorias');
@@ -53,6 +58,11 @@ app.get('/admin/vagas/delete/:id', async (req, res) => {
 
 app.get('/admin/vagas/nova', async (req, res) => {
   res.render('admin/nova-vaga');
+});
+
+// POST nova vaga route
+app.post('/admin/vagas/nova', async (req, res) => {
+  res.send(req.body);
 });
 
 const init = async () => {
