@@ -62,7 +62,12 @@ app.get('/admin/vagas/nova', async (req, res) => {
 
 // POST nova vaga route
 app.post('/admin/vagas/nova', async (req, res) => {
-  res.send(req.body);
+  const { titulo, descricao, categoria } = req.body;
+  const db = await dbConnection;
+  await db.run(
+    `insert into vagas(categoria, titulo, descricao) values(${categoria}, '${titulo}', '${descricao}')`
+  );
+  res.redirect('/admin/vagas');
 });
 
 const init = async () => {
